@@ -370,30 +370,11 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
                      **kwargs: Any
                      ):   
         
-        print("ON CHAIN END")
-        print(f"Chain outputs: {outputs}")
-        print(f"Run ID: {run_id}")
-        print(f"Parent Run ID: {parent_run_id}")
-        print(f"Tags: {tags}")
-        print(f"Additional kwargs: {kwargs}")
-        
-        
-        
-    
         if context_api.get_value(_SUPPRESS_INSTRUMENTATION_KEY):
             return
 
         span_holder = self.span_mapping[run_id]
         span = span_holder.span
-        
-        # _set_span_attribute(
-        #     span,
-        #     "chain.output",
-        #     json.dumps(
-        #         {"outputs": outputs, "kwargs": kwargs},
-        #         cls=CallbackFilteredJSONEncoder,
-        #     ),
-        # )
         
         _set_request_params(span, kwargs, self.span_mapping[run_id])
         self._end_span(span, run_id)
@@ -509,20 +490,6 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
                     ):
         tool = getattr(action, "tool", None)
         tool_input = getattr(action, "tool_input", None)
-        log = getattr(action, "log", None)
-        # print("ON AGENT ACTION")
-        # print(f"Agent Action:")
-        # print(f"  Tool: {tool}")
-        # print(f"  Tool Input: {tool_input}")
-        # print(f"  Log: {log}")
-        # # Print run IDs
-        # print(f"Run ID: {run_id}")
-        # print(f"Parent Run ID: {parent_run_id}")
-        # # Print any additional kwargs
-        # print("Additional kwargs:")
-        # for key, value in kwargs.items():
-        #     print(f"  {key}: {value}")
-        
         name = action.tool
         span_name = f"{name}.{SpanKind.INTERNAL}"
         span = self._create_span(
@@ -543,13 +510,6 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
                         parent_run_id: UUID, 
                         **kwargs: Any
                         ):
-        # print("ON AGENT FINISH")
-        # print(f"Agent finish return values: {finish.return_values}")
-        # print(f"Agent finish log: {finish.log}")
-        # print(f"Run ID: {run_id}")
-        # print(f"Parent Run ID: {parent_run_id}")
-        # print(f"Additional kwargs: {kwargs}")
-        
         span = self.span_mapping[run_id].span
         
         _set_span_attribute(span, "agent.tool.output", finish.return_values['output'])
