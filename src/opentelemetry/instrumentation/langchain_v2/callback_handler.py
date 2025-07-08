@@ -17,6 +17,7 @@ from uuid import UUID
 from opentelemetry import context as context_api
 from opentelemetry.instrumentation.utils import _SUPPRESS_INSTRUMENTATION_KEY
 
+from langchain_core.agents import AgentAction, AgentFinish
 
 from opentelemetry.instrumentation.langchain_v2.span_attributes import Span_Attributes, GenAIOperationValues
 from opentelemetry.instrumentation.langchain_v2.utils import dont_throw, CallbackFilteredJSONEncoder
@@ -136,8 +137,9 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
 
 
             model_id = None
-            if "invocation_params" in metadata and "model_id" in metadata["invocation_params"]:
-                model_id = metadata["invocation_params"]["model_id"]
+            if metadata is not None:
+                if "invocation_params" in metadata and "model_id" in metadata["invocation_params"]:
+                    model_id = metadata["invocation_params"]["model_id"]
 
             self.span_mapping[run_id] = SpanHolder(
                 span, None, [], time.time, model_id
@@ -367,20 +369,31 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
                      tags: list[str] | None = None,
                      **kwargs: Any
                      ):   
+        
+        print("ON CHAIN END")
+        print(f"Chain outputs: {outputs}")
+        print(f"Run ID: {run_id}")
+        print(f"Parent Run ID: {parent_run_id}")
+        print(f"Tags: {tags}")
+        print(f"Additional kwargs: {kwargs}")
+        
+        
+        
+    
         if context_api.get_value(_SUPPRESS_INSTRUMENTATION_KEY):
             return
 
         span_holder = self.span_mapping[run_id]
         span = span_holder.span
         
-        _set_span_attribute(
-            span,
-            "chain.output",
-            json.dumps(
-                {"outputs": outputs, "kwargs": kwargs},
-                cls=CallbackFilteredJSONEncoder,
-            ),
-        )
+        # _set_span_attribute(
+        #     span,
+        #     "chain.output",
+        #     json.dumps(
+        #         {"outputs": outputs, "kwargs": kwargs},
+        #         cls=CallbackFilteredJSONEncoder,
+        #     ),
+        # )
         
         _set_request_params(span, kwargs, self.span_mapping[run_id])
         self._end_span(span, run_id)
@@ -488,12 +501,59 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
                       ):
         self._handle_error(error, run_id, parent_run_id, **kwargs)
     
+    def on_agent_action(self,
+                    action: AgentAction,
+                    run_id: UUID,
+                    parent_run_id: UUID,
+                    **kwargs: Any
+                    ):
+        tool = getattr(action, "tool", None)
+        tool_input = getattr(action, "tool_input", None)
+        log = getattr(action, "log", None)
+        # print("ON AGENT ACTION")
+        # print(f"Agent Action:")
+        # print(f"  Tool: {tool}")
+        # print(f"  Tool Input: {tool_input}")
+        # print(f"  Log: {log}")
+        # # Print run IDs
+        # print(f"Run ID: {run_id}")
+        # print(f"Parent Run ID: {parent_run_id}")
+        # # Print any additional kwargs
+        # print("Additional kwargs:")
+        # for key, value in kwargs.items():
+        #     print(f"  {key}: {value}")
         
-    def on_agent_action(self, action, run_id, parent_run_id, **kwargs):
-        pass
+        name = action.tool
+        span_name = f"{name}.{SpanKind.INTERNAL}"
+        span = self._create_span(
+            run_id,
+            parent_run_id,
+            span_name,
+        )
+        if run_id in self.span_mapping:
+            span = self.span_mapping[run_id].span
+        
+        _set_span_attribute(span, "agent.tool.input", tool_input)
+        _set_span_attribute(span, "agent.tool.name", tool)
+        
     
-    def on_agent_finish(self, finish, run_id, parent_run_id, **kwargs):
-        pass
+    def on_agent_finish(self, 
+                        finish: AgentFinish, 
+                        run_id: UUID, 
+                        parent_run_id: UUID, 
+                        **kwargs: Any
+                        ):
+        # print("ON AGENT FINISH")
+        # print(f"Agent finish return values: {finish.return_values}")
+        # print(f"Agent finish log: {finish.log}")
+        # print(f"Run ID: {run_id}")
+        # print(f"Parent Run ID: {parent_run_id}")
+        # print(f"Additional kwargs: {kwargs}")
+        
+        span = self.span_mapping[run_id].span
+        
+        _set_span_attribute(span, "agent.tool.output", finish.return_values['output'])
+
 
     def on_agent_error(self, error, run_id, parent_run_id, **kwargs):
         self._handle_error(error, run_id, parent_run_id, **kwargs)
