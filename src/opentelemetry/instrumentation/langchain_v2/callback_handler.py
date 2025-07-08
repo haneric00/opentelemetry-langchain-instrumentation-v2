@@ -20,7 +20,7 @@ from opentelemetry.instrumentation.utils import _SUPPRESS_INSTRUMENTATION_KEY
 from langchain_core.agents import AgentAction, AgentFinish
 
 from opentelemetry.instrumentation.langchain_v2.span_attributes import Span_Attributes, GenAIOperationValues
-from opentelemetry.instrumentation.langchain_v2.utils import dont_throw, CallbackFilteredJSONEncoder
+from opentelemetry.instrumentation.langchain_v2.utils import dont_throw
 from opentelemetry.trace.status import Status, StatusCode
 
 # below dataclass stolen from openLLMetry
