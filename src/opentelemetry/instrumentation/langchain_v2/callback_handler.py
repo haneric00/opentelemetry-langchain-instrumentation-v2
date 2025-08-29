@@ -31,7 +31,7 @@ class SpanHolder:
 
 
 def _set_request_params_serialized(span, serialized, span_holder: SpanHolder):
-    if serialized and serialized["kwargs"]:
+    if serialized and serialized.get("kwargs"):
         model_id = serialized["kwargs"].get("model_id", None)
         temperature = serialized["kwargs"].get("temperature", None)
         max_tokens = serialized["kwargs"].get("max_tokens", None)
@@ -209,9 +209,7 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
             kind=SpanKind.CLIENT,
             metadata=metadata,
         )
-        _set_span_attribute(span, SpanAttributes.GEN_AI_OPERATION_NAME, GenAIOperationValues.CHAT)
 
-        _set_span_attribute(span, SpanAttributes.GEN_AI_SYSTEM, GenAIOperationValues.UNKNOWN)
         if serialized:
             _set_request_params_serialized(span, serialized, self.span_mapping[run_id])
 
