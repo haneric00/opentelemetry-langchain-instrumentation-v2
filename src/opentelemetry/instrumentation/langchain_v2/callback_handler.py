@@ -150,25 +150,40 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
             return span
 
 
-    @staticmethod
+    # @staticmethod
     def _get_name_from_callback(
+        self,
         serialized: dict[str, Any],
         **kwargs: Any,
     ) -> str:
         """Get the name to be used for the span. Based on heuristic. Can be extended."""
+        if serialized and serialized.get("name"):
+            return serialized["name"]
+        if serialized and serialized.get("id)"):
+            return serialized["id"][-1]
+
         if "invocation_params" in kwargs and "model_id" in kwargs["invocation_params"]:
             return  kwargs["invocation_params"]["model_id"]
         if serialized and "kwargs" in serialized and serialized["kwargs"].get("name"):
             return serialized["kwargs"]["name"]
         if kwargs.get("name"):
             return kwargs["name"]
-        if serialized.get("name"):
-            return serialized["name"]
-        if "id" in serialized:
-            return serialized["id"][-1]
 
         return "unknown"
 
+    def _get_span_name(
+        self,
+        serialized: dict[str, Any],
+        **kwargs: Any,
+    ) -> str:
+        if serialized and serialized.get("id)"):
+            return serialized["id"][-1]
+        if serialized and "kwargs" in serialized and serialized["kwargs"].get("model_id"):
+            return serialized["kwargs"]["model_id"]
+        if "invocation_params" in kwargs and "model_id" in kwargs["invocation_params"]:
+            return  kwargs["invocation_params"]["model_id"]
+
+        return "unknown"
 
     def _handle_error(
         self,
@@ -201,7 +216,7 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
         if context_api.get_value(_SUPPRESS_INSTRUMENTATION_KEY):
             return
 
-        name = self._get_name_from_callback(serialized, **kwargs)
+        name = self._get_span_name(serialized, kwargs=kwargs)
         span = self._create_span(
             run_id,
             parent_run_id,
@@ -210,6 +225,7 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
             metadata=metadata,
         )
 
+        _set_span_attribute(span, SpanAttributes.GEN_AI_SYSTEM, GenAIOperationValues.UNKNOWN)
         if serialized:
             _set_request_params_serialized(span, serialized, self.span_mapping[run_id])
 
@@ -231,8 +247,7 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
         if context_api.get_value(_SUPPRESS_INSTRUMENTATION_KEY):
             return
 
-        name = self._get_name_from_callback(serialized, kwargs=kwargs)
-
+        name = self._get_span_name(serialized, kwargs=kwargs)
         span = self._create_span(
             run_id,
             parent_run_id,
