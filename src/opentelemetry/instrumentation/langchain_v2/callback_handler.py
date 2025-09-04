@@ -1,4 +1,3 @@
-import json
 import time
 from dataclasses import dataclass, field
 from typing import Any, Optional
@@ -130,7 +129,6 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
                 )
             else:
                 span = self.tracer.start_span(span_name, kind=kind)
-                _set_span_attribute(span, "root_span", True)
 
             model_id = "unknown"
 
@@ -150,7 +148,6 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
             return span
 
 
-    # @staticmethod
     def _get_name_from_callback(
         self,
         serialized: dict[str, Any],
@@ -181,7 +178,7 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
         if serialized and "kwargs" in serialized and serialized["kwargs"].get("model_id"):
             return serialized["kwargs"]["model_id"]
         if "invocation_params" in kwargs and "model_id" in kwargs["invocation_params"]:
-            return  kwargs["invocation_params"]["model_id"]
+            return kwargs["invocation_params"]["model_id"]
 
         return "unknown"
 
@@ -226,12 +223,13 @@ class OpenTelemetryCallbackHandler(BaseCallbackHandler):
         )
 
         _set_span_attribute(span, SpanAttributes.GEN_AI_SYSTEM, GenAIOperationValues.UNKNOWN)
+        _set_span_attribute(span, SpanAttributes.GEN_AI_OPERATION_NAME, GenAIOperationValues.CHAT)
         if serialized:
             _set_request_params_serialized(span, serialized, self.span_mapping[run_id])
 
         if metadata:
             _set_request_params_metadata(span, metadata, self.span_mapping[run_id])
-        _set_span_attribute(span, SpanAttributes.GEN_AI_OPERATION_NAME, GenAIOperationValues.CHAT)
+
 
 
     def on_llm_start(self,
