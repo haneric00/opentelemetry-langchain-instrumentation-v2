@@ -1,0 +1,14 @@
+langchain
+langchain-community
+langchain-aws
+opentelemetry-sdk
+opentelemetry-api
+opentelemetry-semantic-conventions
+python-dotenv
+botocore
+boto3
+aws-opentelemetry-distro
+duckduckgo-search
+langgraph
+langgraph-bigtool
+dist/opentelemetry_instrumentation_langchain_v2-0.1.0-py3-none-any.whl

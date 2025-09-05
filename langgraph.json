@@ -1,0 +1,25 @@
+{
+    "title": "LangGraph Chat Application",
+    "description": "A simple chat application with search capability",
+    "entry_point": "/Users/ehrican/Desktop/opentelemetry-langchain-instrumentation-v2/demo/langgraph/agent_v2.py:graph",
+    "dependencies": ["."],
+    "graphs": {
+      "react_agent": "/Users/ehrican/Desktop/opentelemetry-langchain-instrumentation-v2/demo/langgraph/agent_v2.py:graph"
+    },
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "messages": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "role": {"type": "string"},
+                        "content": {"type": "string"}
+                    },
+                    "required": ["role", "content"]
+                }
+            }
+        }
+    }
+}

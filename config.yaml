@@ -1,0 +1,24 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: "0.0.0.0:4318"  # Make sure it's listening on all interfaces
+
+exporters:
+  awsxray:
+    region: us-west-2
+    endpoint: "https://xray.us-west-2.amazonaws.com"  # AWS X-Ray endpoint
+  debug:
+    verbosity: detailed
+
+service:
+  telemetry:
+    logs:
+      level: debug  # Enable detailed logs for diagnosis
+
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug, awsxray]

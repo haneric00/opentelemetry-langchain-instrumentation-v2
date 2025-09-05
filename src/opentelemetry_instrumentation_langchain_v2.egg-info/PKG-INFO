@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: opentelemetry-instrumentation-langchain-v2
+Version: 0.1.0
+Summary: LangChain/LangGraph instrumentation library for OpenTelemetry
+Author-email: Eric <ehrican@amazon.com>, Michael <yiyuanh@amazon.com>, Eric <zhaez@amazon.com>
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: opentelemetry-api
+Requires-Dist: opentelemetry-sdk
+Requires-Dist: opentelemetry-instrumentation
+Requires-Dist: langchain
+Requires-Dist: langchain-core
+
+# opentelemetry-langchain-instrumentation-v2
+
+## TBD

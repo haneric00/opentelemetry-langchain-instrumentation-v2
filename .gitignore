@@ -1,0 +1,2 @@
+src/opentelemetry/instrumentation/langchain_v2/aws_auth_session.py
+src/opentelemetry/instrumentation/langchain_v2/utils.py

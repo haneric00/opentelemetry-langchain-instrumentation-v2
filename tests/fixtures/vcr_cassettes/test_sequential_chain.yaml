@@ -1,0 +1,169 @@
+interactions:
+- request:
+    body: '{"max_tokens_to_sample": 500, "prompt": "\n\nHuman: You are a playwright.
+      Given the title of play and the era it is set in, it is your job to write a
+      synopsis for that title.\n\n    Title: Tragedy at sunset on the beach\n    Era:
+      Victorian England\n    Playwright: This is a synopsis for the above play:\n\nAssistant:",
+      "temperature": 0.7}'
+    headers:
+      Accept:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      Content-Length:
+      - '339'
+      Content-Type:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC4wIG1kL0JvdG9jb3JlIzEuNDAuMCB1YS8yLjEgb3MvbWFjb3MjMjQuNS4wIG1k
+        L2FyY2gjYXJtNjQgbGFuZy9weXRob24jMy4xMS4xMyBtZC9weWltcGwjQ1B5dGhvbiBtL1osRCxi
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjAgeC1jbGllbnQtZnJhbWV3b3Jr
+        OmxhbmdjaGFpbi1hd3M=
+      amz-sdk-invocation-id:
+      - !!binary |
+        YmMwNmY2NTEtOWZmYy00YWQzLThmNzktZWQ3ZDQ5ODBlMmNl
+      amz-sdk-request:
+      - !!binary |
+        YXR0ZW1wdD0x
+    method: POST
+    uri: https://bedrock-runtime.us-west-2.amazonaws.com/model/anthropic.claude-v2/invoke
+  response:
+    body:
+      string: '{"type":"completion","completion":" Here is a potential synopsis for
+        the play \"Tragedy at Sunset on the Beach\" set in Victorian England:\n\nIt
+        is the height of summer in a seaside town in Victorian England. Lady Elizabeth,
+        a wealthy aristocrat, is engaged to be married to Lord Henry, a respectable
+        gentleman. However, Elizabeth harbors a secret love for Thomas, a poor fisherman
+        she met on the beach one sunset. \n\nAs the wedding day approaches, Elizabeth
+        becomes increasingly distraught about marrying Henry when she loves another.
+        She arranges to meet Thomas in secret at sunset on the beach the night before
+        her wedding. The two profess their love for each other, but Thomas implores
+        Elizabeth not to ruin her good name by running away with him.\n\nOn Elizabeth''s
+        wedding day, she is melancholy and detached. As she stands at the altar with
+        Henry, a commotion is heard outside. Thomas has been found dead on the same
+        beach where the lovers last met. The townspeople whisper that he took his
+        own life upon realizing he and Elizabeth could never be together.  \n\nA shocked
+        Elizabeth faints at the altar. When she comes to, she tells Henry she cannot
+        marry him with Thomas'' death on her conscience. She confesses their secret
+        affair and her undying love for the fisherman. Henry is affronted and calls
+        off the wedding.  \n\nIn the aftermath, Elizabeth is ruined in the eyes of
+        proper society and her family disowns her. She lives out her days alone by
+        the sea, often visiting the beach at sunset to mourn her lost love. The tragedy
+        is that Elizabeth and Thomas were victims of the rigid Victorian class system
+        that kept them apart.","stop_reason":"stop_sequence","stop":"\n\nHuman:"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1688'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 00:10:58 GMT
+      X-Amzn-Bedrock-Input-Token-Count:
+      - '70'
+      X-Amzn-Bedrock-Invocation-Latency:
+      - '12644'
+      X-Amzn-Bedrock-Output-Token-Count:
+      - '343'
+      x-amzn-RequestId:
+      - f2ee6feb-802a-4261-94da-f86781e4bc44
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens_to_sample": 500, "prompt": "\n\nHuman: You are a play critic
+      from the New York Times. Given the synopsis of play, it is your job to write
+      a review for that play.\n\n    Play Synopsis:\n     Here is a potential synopsis
+      for the play \"Tragedy at Sunset on the Beach\" set in Victorian England:\n\nIt
+      is the height of summer in a seaside town in Victorian England. Lady Elizabeth,
+      a wealthy aristocrat, is engaged to be married to Lord Henry, a respectable
+      gentleman. However, Elizabeth harbors a secret love for Thomas, a poor fisherman
+      she met on the beach one sunset. \n\nAs the wedding day approaches, Elizabeth
+      becomes increasingly distraught about marrying Henry when she loves another.
+      She arranges to meet Thomas in secret at sunset on the beach the night before
+      her wedding. The two profess their love for each other, but Thomas implores
+      Elizabeth not to ruin her good name by running away with him.\n\nOn Elizabeth''s
+      wedding day, she is melancholy and detached. As she stands at the altar with
+      Henry, a commotion is heard outside. Thomas has been found dead on the same
+      beach where the lovers last met. The townspeople whisper that he took his own
+      life upon realizing he and Elizabeth could never be together.  \n\nA shocked
+      Elizabeth faints at the altar. When she comes to, she tells Henry she cannot
+      marry him with Thomas'' death on her conscience. She confesses their secret
+      affair and her undying love for the fisherman. Henry is affronted and calls
+      off the wedding.  \n\nIn the aftermath, Elizabeth is ruined in the eyes of proper
+      society and her family disowns her. She lives out her days alone by the sea,
+      often visiting the beach at sunset to mourn her lost love. The tragedy is that
+      Elizabeth and Thomas were victims of the rigid Victorian class system that kept
+      them apart.\n    Review from a New York Times play critic of the above play:\n\nAssistant:",
+      "temperature": 0.7}'
+    headers:
+      Accept:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      Content-Length:
+      - '1904'
+      Content-Type:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC4wIG1kL0JvdG9jb3JlIzEuNDAuMCB1YS8yLjEgb3MvbWFjb3MjMjQuNS4wIG1k
+        L2FyY2gjYXJtNjQgbGFuZy9weXRob24jMy4xMS4xMyBtZC9weWltcGwjQ1B5dGhvbiBtL1osRCxi
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjAgeC1jbGllbnQtZnJhbWV3b3Jr
+        OmxhbmdjaGFpbi1hd3M=
+      amz-sdk-invocation-id:
+      - !!binary |
+        OWQ5Njk4YzYtYzljMS00ZGRhLWI3NDQtZWJlYzk2YjNlOGE0
+      amz-sdk-request:
+      - !!binary |
+        YXR0ZW1wdD0x
+    method: POST
+    uri: https://bedrock-runtime.us-west-2.amazonaws.com/model/anthropic.claude-v2/invoke
+  response:
+    body:
+      string: '{"type":"completion","completion":" Here is a potential review of the
+        play \"Tragedy at Sunset on the Beach\" from a New York Times critic''s perspective:\n\nThe
+        new production of \"Tragedy at Sunset on the Beach\" at the Grand Theatre
+        tackles forbidden love and rigid societal divides. Set in a seaside Victorian
+        town, Lady Elizabeth finds herself torn between her aristocratic duty and
+        her secret affair with Thomas, a local fisherman. In the hands of director
+        James Wilson, this tale becomes one of passion and heartbreak.  \n\nLeading
+        lady Margaret Thompson brings Elizabeth to life with a nuanced intensity.
+        We feel her suppressed longing in stolen glances and see her anguish in furtive
+        walks along the shore. When she learns of her lover''s shocking death, Ms.
+        Thompson elicits gasps with her dramatic fainting spell at the altar. The
+        crack in her voice when she confesses all to her stunned betrothed, played
+        earnestly by veteran actor Sir Patrick Stewart, brings tears to the eyes.\n\nThe
+        stark set design of weathered wood and billowing linens evokes the salty air
+        and unpredictable tides that shape this community. Brief interludes of folk
+        songs sung by a chorus of local villagers transport us to the windswept beaches
+        where the two lovers met under sunset skies. \n\nWhile the play''s ending
+        is ultimately tragic, one comes away moved by the depth of human emotion and
+        empathy for the heartbreaking constraints faced by the lead characters. Their
+        plight transcends the period setting to reveal the timeless struggles of those
+        who defy their society''s rigid conventions in the name of love. Gripping
+        and poignant, \"Tragedy at Sunset\" makes a stirring addition to this season''s
+        theatrical offerings.","stop_reason":"stop_sequence","stop":"\n\nHuman:"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1761'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 00:11:13 GMT
+      X-Amzn-Bedrock-Input-Token-Count:
+      - '398'
+      X-Amzn-Bedrock-Invocation-Latency:
+      - '14207'
+      X-Amzn-Bedrock-Output-Token-Count:
+      - '355'
+      x-amzn-RequestId:
+      - 157752e0-9457-4132-8f17-5cda248511a5
+    status:
+      code: 200
+      message: OK
+version: 1

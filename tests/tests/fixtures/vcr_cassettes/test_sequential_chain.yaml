@@ -1,0 +1,166 @@
+interactions:
+- request:
+    body: '{"max_tokens_to_sample": 500, "prompt": "\n\nHuman: You are a playwright.
+      Given the title of play and the era it is set in, it is your job to write a
+      synopsis for that title.\n\n    Title: Tragedy at sunset on the beach\n    Era:
+      Victorian England\n    Playwright: This is a synopsis for the above play:\n\nAssistant:",
+      "temperature": 0.7}'
+    headers:
+      Accept:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      Content-Length:
+      - '339'
+      Content-Type:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC4wIG1kL0JvdG9jb3JlIzEuNDAuMCB1YS8yLjEgb3MvbWFjb3MjMjQuNS4wIG1k
+        L2FyY2gjYXJtNjQgbGFuZy9weXRob24jMy4xMS4xMyBtZC9weWltcGwjQ1B5dGhvbiBtL1osYixE
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjAgeC1jbGllbnQtZnJhbWV3b3Jr
+        OmxhbmdjaGFpbi1hd3M=
+      amz-sdk-invocation-id:
+      - !!binary |
+        MjViNzE0NDEtMGUyOC00MjQ5LWI3NDQtNzAyN2ZhNTQ5ZmI1
+      amz-sdk-request:
+      - !!binary |
+        YXR0ZW1wdD0x
+    method: POST
+    uri: https://bedrock-runtime.us-west-2.amazonaws.com/model/anthropic.claude-v2/invoke
+  response:
+    body:
+      string: '{"type":"completion","completion":" Here is a potential synopsis for
+        the play \"Tragedy at Sunset on the Beach\" set in Victorian England:\n\nIt
+        is the height of summer in a seaside town in Victorian England. Lady Elizabeth,
+        a wealthy aristocrat, is engaged to be married to Lord Henry, a respectable
+        gentleman. However, she harbors a secret love for Thomas, a poor fisherman
+        she met on the beach one sunset. Though they come from different worlds, Elizabeth
+        and Thomas are drawn together by a powerful love. \n\nAs the day of her wedding
+        to Lord Henry draws near, Elizabeth grapples with following her heart or adhering
+        to societal expectations. She arranges to meet Thomas in secret at sunset
+        on the beach one last time before her wedding. The lovers reaffirm their affections
+        for one another and Elizabeth reveals she cannot go through with the wedding.
+        \n\nYet their time together is cut short when Lord Henry discovers them. Enraged,
+        he pulls out a pistol and threatens to shoot Thomas. As Elizabeth steps between
+        them pleading for Lord Henry to stop, a struggle ensues and the gun goes off.
+        Elizabeth is struck by the bullet and dies in Thomas'' arms as the sun sets
+        over the sea. \n\nLord Henry is overcome with grief and remorse at the deadly
+        result of his anger. Thomas cradles Elizabeth''s lifeless body, their love
+        tragically cut short. The play closes on the haunting image of Elizabeth''s
+        body silhouetted against the setting sun on the fateful beach, in a tragic
+        ending to a forbidden romance.","stop_reason":"stop_sequence","stop":"\n\nHuman:"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1556'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 22:14:42 GMT
+      X-Amzn-Bedrock-Input-Token-Count:
+      - '70'
+      X-Amzn-Bedrock-Invocation-Latency:
+      - '11433'
+      X-Amzn-Bedrock-Output-Token-Count:
+      - '317'
+      x-amzn-RequestId:
+      - 64a44b09-9383-44c1-b3f3-3c20cb1be0f0
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens_to_sample": 500, "prompt": "\n\nHuman: You are a play critic
+      from the New York Times. Given the synopsis of play, it is your job to write
+      a review for that play.\n\n    Play Synopsis:\n     Here is a potential synopsis
+      for the play \"Tragedy at Sunset on the Beach\" set in Victorian England:\n\nIt
+      is the height of summer in a seaside town in Victorian England. Lady Elizabeth,
+      a wealthy aristocrat, is engaged to be married to Lord Henry, a respectable
+      gentleman. However, she harbors a secret love for Thomas, a poor fisherman she
+      met on the beach one sunset. Though they come from different worlds, Elizabeth
+      and Thomas are drawn together by a powerful love. \n\nAs the day of her wedding
+      to Lord Henry draws near, Elizabeth grapples with following her heart or adhering
+      to societal expectations. She arranges to meet Thomas in secret at sunset on
+      the beach one last time before her wedding. The lovers reaffirm their affections
+      for one another and Elizabeth reveals she cannot go through with the wedding.
+      \n\nYet their time together is cut short when Lord Henry discovers them. Enraged,
+      he pulls out a pistol and threatens to shoot Thomas. As Elizabeth steps between
+      them pleading for Lord Henry to stop, a struggle ensues and the gun goes off.
+      Elizabeth is struck by the bullet and dies in Thomas'' arms as the sun sets
+      over the sea. \n\nLord Henry is overcome with grief and remorse at the deadly
+      result of his anger. Thomas cradles Elizabeth''s lifeless body, their love tragically
+      cut short. The play closes on the haunting image of Elizabeth''s body silhouetted
+      against the setting sun on the fateful beach, in a tragic ending to a forbidden
+      romance.\n    Review from a New York Times play critic of the above play:\n\nAssistant:",
+      "temperature": 0.7}'
+    headers:
+      Accept:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      Content-Length:
+      - '1772'
+      Content-Type:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC4wIG1kL0JvdG9jb3JlIzEuNDAuMCB1YS8yLjEgb3MvbWFjb3MjMjQuNS4wIG1k
+        L2FyY2gjYXJtNjQgbGFuZy9weXRob24jMy4xMS4xMyBtZC9weWltcGwjQ1B5dGhvbiBtL1osYixE
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjAgeC1jbGllbnQtZnJhbWV3b3Jr
+        OmxhbmdjaGFpbi1hd3M=
+      amz-sdk-invocation-id:
+      - !!binary |
+        NWIzZWMwODctZDYwZi00NDhiLTk5YjAtNTUwMjNiNGIxNWU5
+      amz-sdk-request:
+      - !!binary |
+        YXR0ZW1wdD0x
+    method: POST
+    uri: https://bedrock-runtime.us-west-2.amazonaws.com/model/anthropic.claude-v2/invoke
+  response:
+    body:
+      string: '{"type":"completion","completion":" Here is a potential review of the
+        play \"Tragedy at Sunset on the Beach\" from a New York Times critic:\n\nTragedy
+        at Sunset on the Beach is a heartrending new play that transports audiences
+        to a seaside town in Victorian England for a tale of forbidden love and devastating
+        consequences. Penned by promising new playwright [playwright''s name], the
+        drama centers on the ill-fated romance between aristocrat Lady Elizabeth and
+        poor fisherman Thomas. \n\nOn the surface, the plot treads familiar territory
+        - a Romeo and Juliet style love affair divided by class. But the playwright
+        breathes new life into the star-crossed lovers trope with emotionally complex
+        characters and evocative setting. The craggy cliffs and roaring sea of the
+        seaside town mirror the tumultuousness of Elizabeth and Thomas'' affair. \n\nThe
+        talented cast, led by [actress name] as the anguished Elizabeth and [actor
+        name] as the yearning Thomas, bring palpable chemistry and passion to the
+        title characters. Their tender, heartfelt performances give the play its beating
+        heart. \n\nWhen the lovers arrange a secret sunset tryst on the beach before
+        Elizabeth''s wedding to respectable Lord Henry, the stage is set for tragedy.
+        And tragedy indeed strikes in the dramatic climax when Lord Henry discovers
+        the affair and a scuffle ensues, leaving Elizabeth dead in Thomas'' arms.
+        \n\nWhile the melancholy conclusion feels inevitable, the final haunting image
+        of Elizabeth''s silhouette against the sunset lingers long after the curtain
+        closes. Tragedy at Sunset on the Beach is an affecting theatrical experience
+        that announces the arrival of a promising playwright to watch. This is a production
+        not to be missed for anyone seeking theater that transports you completely
+        into its vivid world of longing and loss.","stop_reason":"stop_sequence","stop":"\n\nHuman:"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1866'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Aug 2025 22:14:59 GMT
+      X-Amzn-Bedrock-Input-Token-Count:
+      - '372'
+      X-Amzn-Bedrock-Invocation-Latency:
+      - '16605'
+      X-Amzn-Bedrock-Output-Token-Count:
+      - '370'
+      x-amzn-RequestId:
+      - 955959b9-68fc-46cf-95e3-d200f5c58a39
+    status:
+      code: 200
+      message: OK
+version: 1

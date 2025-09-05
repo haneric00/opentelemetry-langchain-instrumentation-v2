@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/setup.py
+src/opentelemetry/instrumentation/langchain_v2/__init__.py
+src/opentelemetry/instrumentation/langchain_v2/async_callback_handler.py
+src/opentelemetry/instrumentation/langchain_v2/aws_auth_session.py
+src/opentelemetry/instrumentation/langchain_v2/callback_handler.py
+src/opentelemetry/instrumentation/langchain_v2/span_attributes.py
+src/opentelemetry/instrumentation/langchain_v2/utils.py
+src/opentelemetry/instrumentation/langchain_v2/version.py
+src/opentelemetry_instrumentation_langchain_v2.egg-info/PKG-INFO
+src/opentelemetry_instrumentation_langchain_v2.egg-info/SOURCES.txt
+src/opentelemetry_instrumentation_langchain_v2.egg-info/dependency_links.txt
+src/opentelemetry_instrumentation_langchain_v2.egg-info/requires.txt
+src/opentelemetry_instrumentation_langchain_v2.egg-info/top_level.txt
+tests/test_callback_handler.py

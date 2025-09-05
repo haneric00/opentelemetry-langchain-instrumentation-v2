@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: '{"anthropic_version": "bedrock-2023-05-31", "messages": [{"role": "user",
+      "content": "What''s 5 + 5?"}], "system": "You are a mathematician.", "max_tokens":
+      1000, "temperature": 0}'
+    headers:
+      Accept:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      Content-Length:
+      - '179'
+      Content-Type:
+      - !!binary |
+        YXBwbGljYXRpb24vanNvbg==
+      User-Agent:
+      - !!binary |
+        Qm90bzMvMS40MC4wIG1kL0JvdG9jb3JlIzEuNDAuMCB1YS8yLjEgb3MvbWFjb3MjMjQuNS4wIG1k
+        L2FyY2gjYXJtNjQgbGFuZy9weXRob24jMy4xMS4xMyBtZC9weWltcGwjQ1B5dGhvbiBtL2IsRCxa
+        IGNmZy9yZXRyeS1tb2RlI2xlZ2FjeSBCb3RvY29yZS8xLjQwLjAgeC1jbGllbnQtZnJhbWV3b3Jr
+        OmxhbmdjaGFpbi1hd3M=
+      amz-sdk-invocation-id:
+      - !!binary |
+        YjUyMjYzNGUtNGVlNS00NGJmLThhM2ItZjE4NjBhZTE1MDcz
+      amz-sdk-request:
+      - !!binary |
+        YXR0ZW1wdD0x
+      authorization:
+      - AWS4-HMAC-SHA256 REDACTED
+      x-amz-date:
+      - REDACTED_DATE
+    method: POST
+    uri: https://bedrock-runtime.us-west-2.amazonaws.com/model/anthropic.claude-3-haiku-20240307-v1%3A0/invoke
+  response:
+    body:
+      string: '{"message":"The security token included in the request is invalid."}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '68'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 04 Aug 2025 22:06:01 GMT
+      x-amzn-ErrorType:
+      - UnrecognizedClientException:http://internal.amazon.com/coral/com.amazon.coral.service/
+      x-amzn-RequestId:
+      - d2d592ed-7690-4ae7-acea-0fc66a81b1b4
+    status:
+      code: 403
+      message: Forbidden
+version: 1
